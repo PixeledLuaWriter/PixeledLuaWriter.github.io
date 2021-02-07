@@ -4,7 +4,7 @@ background-color: rgb(36, 36, 36)
 }
 
 .btn1 {
-border-radius: 8px;
+border-radius: 4px;
 color: white;
 text-align: center;
 text-decoration: none;
@@ -12,7 +12,7 @@ background-color: rgb(122, 122, 122)
 }
 
 .btn2 {
-border-radius: 8px;
+border-radius: 4px;
 color: white;
 text-align: center;
 text-decoration: none;
