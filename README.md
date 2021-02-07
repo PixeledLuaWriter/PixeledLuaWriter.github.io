@@ -10,3 +10,6 @@ local module = {}
 return module
 ```
 with the code from the lua file
+
+[X] buttons
+[ ] background gradient
