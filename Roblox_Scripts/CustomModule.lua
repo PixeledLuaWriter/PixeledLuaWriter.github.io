@@ -1,6 +1,13 @@
 --[[ FileName: ExecutionModule.lua ]]
 --[[ Author: Godcat567 ]]
 
+--[[
+      USAGE: require(AssetId)({
+               User = {"Name Here Or " UserId Here Without The Quotes},
+               RunScript = true
+             })
+]]--
+
 --[[ Variable Definition ]]
 
 Players = game:GetService("Players")
