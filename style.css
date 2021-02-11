@@ -15,7 +15,6 @@ background: linear-gradient(170deg, rgba(12, 12, 12, 0.8) 10%, rgba(22, 22, 22, 
 }
 
 .btn::before {
- opacity = 0
  content: '';
  position: absolute;
  width: 100%;
