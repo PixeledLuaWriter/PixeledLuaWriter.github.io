@@ -1,13 +1,7 @@
 html {
 display: flex;
-}
-
-body {
- position: relative;
- min-height: 100%;
- padding-bottom: 3rem;
- width: 100%;
- background: linear-gradient(170deg, rgba(36, 36, 36, 0) rgba(56, 56, 56, 0.4) 20%, rgba(66, 66, 66, 0.5) 35%, rgba(96, 96, 96, 0.6) 45%, rgba(116, 116, 116, 0.8) 75%, rgba(136, 136, 136, 0.8) 100%) rgba(36, 36, 36, 0)
+background: rgb(36, 36, 36);
+background-image: linear-gradient(170deg, rgba(36, 36, 36, 0) rgba(56, 56, 56, 0.4) 20%, rgba(66, 66, 66, 0.5) 35%, rgba(96, 96, 96, 0.6) 45%, rgba(116, 116, 116, 0.8) 75%, rgba(136, 136, 136, 0.8) 100%);
 }
 
 .btn1 {
