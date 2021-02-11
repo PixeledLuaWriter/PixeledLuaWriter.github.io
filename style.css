@@ -16,7 +16,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 15px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn2 {
@@ -29,7 +29,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn3 {
@@ -42,7 +42,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn4 {
@@ -55,7 +55,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn5 {
@@ -68,7 +68,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn6 {
@@ -81,7 +81,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn7 {
@@ -94,7 +94,7 @@ text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
-background-color: rgb(122, 122, 122);
+background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
 
 .btn1::before {
