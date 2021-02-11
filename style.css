@@ -110,7 +110,7 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn1:hover::before {
+.btn1:hover::before, btn1:focus::before {
   opacity: 0.2
 }
 
@@ -127,7 +127,7 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn2:hover::before {
+.btn2:hover::before, btn2:focus::before {
   opacity: 0.2
 }
 
@@ -144,7 +144,7 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn3:hover::before {
+.btn3:hover::before, btn3:focus::before {
   opacity: 0.2
 }
 
@@ -161,7 +161,7 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn4:hover::before {
+.btn4:hover::before, btn4:focus::before {
   opacity: 0.2
 }
 
@@ -178,15 +178,13 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn5:hover::before {
+.btn5:hover::before,, btn5:focus::before {
   opacity: 0.2
 }
 
 .btn6::before {
   content: '';
   position: absolute;
-  top: 0px;
-  left: 0px;
   width: 100%;
   height: 100%;
   background-color: #8592ad;
@@ -195,15 +193,13 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn6:hover::before {
+.btn6:hover::before, btn6:focus::before {
   opacity: 0.2
 }
 
 .btn7::before {
   content: '';
   position: absolute;
-  top: 0px;
-  left: 0px;
   width: 100%;
   height: 100%;
   background-color: #8592ad;
@@ -212,6 +208,6 @@ background: linear-gradient(-30deg, rgba(52, 52, 52, 0.8) 50%, rgba(122, 122, 12
   transition: .2s opacity ease-in-out; 
 }
 
-.btn7:hover::before {
+.btn7:hover::before, btn7:focus::before {
   opacity: 0.2
 }
