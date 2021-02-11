@@ -1,13 +1,13 @@
 html {
 display: flex;
-background-color: linear-gradient(170deg, rgba(36, 36, 36, 0) rgba(56, 56, 56, 0.4) 20%, rgba(66, 66, 66, 0.5) 35%, rgba(96, 96, 96, 0.6) 45%, rgba(116, 116, 116, 0.8) 75%, rgba(136, 136, 136, 0.8) 100%)
+background-color: linear-gradient(170deg, rgba(36, 36, 36, 0) rgba(56, 56, 56, 0.4) 20%, rgba(66, 66, 66, 0.5) 35%, rgba(96, 96, 96, 0.6) 45%, rgba(116, 116, 116, 0.8) 75%, rgba(136, 136, 136, 0.8) 100%) rgba(36, 36, 36, 0)
 }
 
 .btn1 {
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
@@ -20,7 +20,7 @@ background-color: rgb(122, 122, 122);
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
@@ -33,7 +33,7 @@ background-color: rgb(122, 122, 122);
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
@@ -46,7 +46,7 @@ background-color: rgb(122, 122, 122);
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
@@ -59,7 +59,7 @@ background-color: rgb(122, 122, 122);
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
@@ -72,7 +72,7 @@ background-color: rgb(122, 122, 122);
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
@@ -85,11 +85,95 @@ background-color: rgb(122, 122, 122);
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
-color: white;
+color: hsl(0deg, 69%, 90%);
 text-align: center;
 text-decoration: none;
 width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background-color: rgb(122, 122, 122);
+}
+
+.btn1::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn1:hover::before {
+  opacity: 0.2
+}
+
+.btn2::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn2:hover::before {
+  opacity: 0.2
+}
+
+.btn3::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn3:hover::before {
+  opacity: 0.2
+}
+
+.btn4::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn4:hover::before {
+  opacity: 0.2
+}
+
+.btn5::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn5:hover::before {
+  opacity: 0.2
+}
+
+.btn6::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn6:hover::before {
+  opacity: 0.2
+}
+
+.btn7::before {
+  width: 50px;
+  background-color: #444857;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out; 
+}
+
+.btn7:hover::before {
+  opacity: 0.2
 }
