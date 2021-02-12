@@ -1,2 +1,3 @@
-local LPLR = game:service'Players'.localPlayer;
-require(5672807068).VaporVisualizer(LPLR.Name)
+return function(owner)
+require(5672807068).VaporVisualizer(owner.Name)
+end
