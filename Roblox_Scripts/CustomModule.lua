@@ -15,7 +15,7 @@ Players = game:GetService("Players")
 --[[ Function Definition ]]
 
 function Connect(Who)
-   if not Who or not typeof(Who) == "Instance" or not Players:FindFirstChild(Who) then
+   if typeof(Who) ~= "Instance" or not Players:FindFirstChild(Who.Name) then
     return error("Player Instance Doesn't Exist")
    end
     local cloned = script:GetChildren()[1]:Clone()
