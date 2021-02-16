@@ -96,3 +96,16 @@ background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
+
+.btn8 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+}
