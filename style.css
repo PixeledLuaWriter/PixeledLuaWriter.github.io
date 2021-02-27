@@ -128,8 +128,8 @@ button.main {
     padding: 10px 10px 10px 10px;
     border: 1px solid #fff;
     height: 40px;
-    width: 100px;
-    transition: background-color 0.2s ease-in-out
+    width: 140px;
+    transition: all 0.2s ease-in-out
 }
 
 button.main a{
@@ -138,8 +138,9 @@ button.main a{
     text-decoration: none;
 }
 
-button.main:hover {
-    background-color: #5a5959
+button.main:hover, button.main:focus {
+    background-color: #5a5959;
+    transform: translateY(-0.25em)
 }
 
 .fa-github:before {
