@@ -17,6 +17,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 15px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn2 {
@@ -30,6 +31,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn3 {
@@ -43,6 +45,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn4 {
@@ -56,6 +59,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn5 {
@@ -69,6 +73,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn6 {
@@ -82,6 +87,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn7 {
@@ -95,6 +101,7 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
 .btn8 {
@@ -108,17 +115,37 @@ width: 50px;
 background-size: 50% auto;
 font-size: 16px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
 }
 
-.main {
-border-radius: 6px;
-margin: 5px;
-padding: 6px;
-color: hsl(0deg, 69%, 90%);
-text-align: center;
-text-decoration: none;
-width: 50px;
-background-size: 50% auto;
-font-size: 15px;
-background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover, .btn6:hover, .btn7:hover, .btn8:hover {
+    background-color: #b77676
+}
+
+button.main {
+    background: inherit;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    height: 40px;
+    width: 100px;
+    transition: background-color 0.2s ease-in-out
+}
+
+button.main a{
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+button.main:hover {
+    background-color: #5a5959
+}
+
+.fa-github:before {
+    content: "\f09b"
+}
+
+i {
+    font-size: 160%;
+    color: white;
 }
