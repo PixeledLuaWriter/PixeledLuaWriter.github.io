@@ -122,13 +122,3 @@ background-size: 50% auto;
 font-size: 15px;
 background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
 }
-
-i {
-color: white;
-font-size: 15px;
-margin-bottom: 2px;
-}
-
-.fa-github:before {
-  content: "\f09b";
-}
