@@ -7,7 +7,7 @@ it was designed for animating uses
 
 ## CreateTween:CreateNewTween()
 [CreateTween:CreateNewTween()]: #user-content-createtweencreatenewtween
-```
+```lua
 function CreateTween:CreateNewTween(TypeOfInstance, {Data}, EasingStyle: String, EasingDirection: String, time: int,  PlayOnCreation: bool)
 ```
 CreateNewTween basically creates a tween with
