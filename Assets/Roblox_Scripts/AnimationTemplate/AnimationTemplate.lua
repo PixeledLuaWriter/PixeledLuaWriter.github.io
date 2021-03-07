@@ -269,7 +269,7 @@ while (not false) do
 	local hflr,psflr = workspace:FindPartOnRayWithIgnoreList(Ray.new(RootPart.CFrame.p,((CFrame.new(RootPart.Position,RootPart.Position - Vector3.new(0,1,0))).lookVector).unit * (4)), {Character})
 	spval = 25/(Humanoid.WalkSpeed/16)
 	sinetick=sinetick+change
-	Humanoid.WalkSpeed = Speed
+	--Humanoid.WalkSpeed = Speed
 	Humanoid.JumpPower = JumpPow
 	Humanoid.Health = "NAN"
 	Humanoid.MaxHealth = "NAN"
@@ -292,11 +292,11 @@ while (not false) do
 	end
 
 	--Footplanting Math :joy:
-	local FwdDir = Humanoid.MoveDirection*RootPart.CFrame.lookVector
-	local RigDir = Humanoid.MoveDirection*RootPart.CFrame.rightVector
+	local FwdDir = Humanoid.MoveDirection*RootPart.CFrame.lookVector or Vector3.new()
+	local RigDir = Humanoid.MoveDirection*RootPart.CFrame.rightVector or Vector3.new()
 	Vector = {
-		X=math.clamp(RigDir.X+RigDir.Z,-Humanoid.WalkSpeed,Humanoid.WalkSpeed),
-		Z=math.clamp(FwdDir.X+FwdDir.Z,-Humanoid.WalkSpeed,Humanoid.WalkSpeed)
+		X=RigDir.X+RigDir.Z,
+		Z=FwdDir.X+FwdDir.Z
 	}
 	Div = 1
 	if(Vector.Z<0)then
@@ -304,9 +304,10 @@ while (not false) do
 	end
 	Vector.X = Vector.X/Div
 	Vector.Z = Vector.Z/Div
-	ForWLV = Vector.X
-	ForWLB = Vector.Z
-	
+	ForWLV = Vector.X/Div
+	ForWLB = Vector.Z/Div
+	Humanoid.WalkSpeed = Speed/Div
+
 	--[[if Plr.Name == "Godcat567" then
 	SetJointTween(Tail,{C0 = TailCF*CFrame.Angles(math.rad(0),math.rad(20 * math.sin(sinetick/60*2.5)),math.rad(0))},"Quad","Out",InterpolationSpeed)
 	end
