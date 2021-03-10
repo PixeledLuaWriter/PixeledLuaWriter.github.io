@@ -1,5 +1,5 @@
 ## RequireProxy
-[RequireProxy] = #user-content-requireproxy
+[RequireProxy]: #user-content-requireproxy
 This module allows you to "bypass" a sandboxed
 require function with a metatable
 
