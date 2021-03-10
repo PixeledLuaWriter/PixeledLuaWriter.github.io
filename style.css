@@ -151,3 +151,21 @@ i {
     font-size: 160%;
     color: white;
 }
+
+.btn2, .btn21, .btn22, .btn23 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 15px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn2:hover, .btn21:hover, .btn22:hover, .btn23:hover {
+background-color: #b77676
+}
