@@ -48,7 +48,6 @@ body {
 
 .inner::-webkit-scrollbar-thumb {
     border: 5px solid transparent;
-    display: block;
     background: #282828;
     border-radius: 10px;
     background-clip: padding-box;
