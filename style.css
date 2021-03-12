@@ -17,7 +17,7 @@ body {
 
 #app-root {
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
     position: absolute;
     width: 100%;
 }
@@ -29,7 +29,8 @@ body {
 .inner {
     height: 100vh;
     display: grid;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     flex-direction: column;
     grid-template-rows: auto 5em
 }
