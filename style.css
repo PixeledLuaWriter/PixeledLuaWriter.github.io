@@ -6,6 +6,58 @@ height: 100%;
 background: linear-gradient(170deg, rgba(12, 12, 12, 0.8) 10%, rgba(22, 22, 22, 0.8) 10%, rgba(32, 32, 32, 0.8) 20%, rgba(55, 55, 55, 0.8) 20%, rgba(102, 102, 102, 0.8) 35%, rgba(132, 132, 132, 0.8) 35%, rgba(152, 152, 152, 0.8) 50%, rgba(172, 172, 172, 0.8) 50%, rgba(192, 192, 192, 0.8) 70%, rgba(202, 202, 202, 0.8) 70%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%);
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-family: cursive, serif, system-ui;
+}
+
+#app-root {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+#app-root:focus {
+    outline: none;
+}
+
+.inner {
+    height: 100vh;
+    display: grid;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    grid-template-rows: auto 5em
+}
+
+.inner::-webkit-scrollbar {
+    width: 16px;
+    display: block;
+    background: transparent;
+}
+
+.inner::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.inner::-webkit-scrollbar-thumb {
+    border: 5px solid transparent;
+    display: block;
+    background: #282828;
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+h2 {
+    position: unset;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .btn1 {
 border-radius: 6px;
 margin: 5px;
