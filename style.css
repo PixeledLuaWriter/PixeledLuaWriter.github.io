@@ -29,7 +29,7 @@ body {
 .inner {
     height: 100vh;
     display: grid;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     flex-direction: column;
     grid-template-rows: auto 5em
