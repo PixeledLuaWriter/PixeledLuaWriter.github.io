@@ -38,7 +38,7 @@ div {
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
-    grid-template-rows: auto 5em
+    grid-template-rows: auto 3em
 }
 
 .inner::-webkit-scrollbar {
