@@ -28,6 +28,10 @@ body {
     outline: none;
 }
 
+div {
+    display: block;
+}
+
 .inner {
     height: 100vh;
     display: grid;
