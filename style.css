@@ -9,12 +9,13 @@ background: linear-gradient(170deg, rgba(12, 12, 12, 0.8) 10%, rgba(22, 22, 22, 
 }
 
 body {
+
     margin: 0;
     padding: 0;
     display: block;
     height: 100%;
     width: 100%;
-    font-family: cursive, serif, system-ui;
+    font-family: cursive;
 }
 
 #app-root {
@@ -38,7 +39,7 @@ div {
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
-    grid-template-rows: auto 3em
+    grid-template-rows: 30vh 3em
 }
 
 .inner::-webkit-scrollbar {
@@ -57,11 +58,44 @@ div {
     background-clip: padding-box;
 }
 
-h2 {
-    position: unset;
-    color: rgba(0, 0, 0, 0.5);
+.innercore1 {
+    display: flex;
+    height: calc(197.09px - 109.56px);
+    overflow: hidden;
+    padding: 0 1%;
+    flex-direction: column;
+    grid-template-rows: auto 0.23px;
+    width: calc(100% - 75%);
 }
 
+.innercore2 {
+    height: calc(125px + 37vh);
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    /**grid: inherit;*/
+}
+
+.innercore2 {}
+
+.innercore3 {
+    display: block;
+    top: 20em;
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    position: inherit;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0.05em;
+    padding: 0.05em;
+}
+
+ul {
+    display: inherit;
+    padding-inline-start: 12px;
+}
 .btn1 {
 border-radius: 6px;
 margin: 5px;
