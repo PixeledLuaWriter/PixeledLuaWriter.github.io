@@ -65,7 +65,7 @@ div {
     padding: 0 1%;
     flex-direction: column;
     grid-template-rows: auto 0.23px;
-    width: calc(100% - 75%);
+    /**width: calc(100% - 75%);*/
 }
 
 .innercore2 {
