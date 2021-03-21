@@ -18,7 +18,7 @@ end
 
 function GetPlayerByName(User)
 	for index, child in next, Players:GetPlayers() do
-		if(tostring(child) == User) then
+		if(child.Name == User) then
 			return child
 		end
 	end
@@ -30,7 +30,7 @@ function GetPlayerByUserId(User)
 	if success then
 		return Players[callback]
 	else
-		error(callback)
+		error(callback) --pulls out the async error
 	end
 end
 
