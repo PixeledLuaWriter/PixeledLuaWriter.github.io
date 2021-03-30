@@ -1,0 +1,261 @@
+html {
+display: flex;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+height: 100%;
+margin: 0;
+padding: 0;
+background: linear-gradient(170deg, rgba(12, 12, 12, 0.8) 10%, rgba(22, 22, 22, 0.8) 10%, rgba(32, 32, 32, 0.8) 20%, rgba(55, 55, 55, 0.8) 20%, rgba(102, 102, 102, 0.8) 35%, rgba(132, 132, 132, 0.8) 35%, rgba(152, 152, 152, 0.8) 50%, rgba(172, 172, 172, 0.8) 50%, rgba(192, 192, 192, 0.8) 70%, rgba(202, 202, 202, 0.8) 70%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%);
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-family: cursive;
+}
+
+#app-root {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+#app-root:focus {
+    outline: none;
+}
+
+div {
+    display: block;
+}
+
+.inner {
+    height: 100vh;
+    display: grid;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    grid-template-rows: 30vh 3em
+}
+
+.inner::-webkit-scrollbar {
+    width: 16px;
+    background: transparent;
+}
+
+.inner::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.inner::-webkit-scrollbar-thumb {
+    border: 5px solid transparent;
+    background: #282828;
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+.innercore1 {
+    display: flex;
+    height: calc(197.09px - 109.56px);
+    overflow: hidden;
+    padding: 0 1%;
+    flex-direction: column;
+    grid-template-rows: auto 0.23px;
+    /**width: calc(100% - 75%);*/
+}
+
+.innercore2 {
+    height: calc(125px + 37vh);
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    /**grid: inherit;*/
+}
+
+.innercore2 {}
+
+.innercore3 {
+    display: block;
+    top: 20em;
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    position: inherit;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0.05em;
+    padding: 0.05em;
+}
+
+ul {
+    display: inherit;
+    padding-inline-start: 12px;
+}
+.btn1 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 15px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn2 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn3 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn4 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn5 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn6 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn7 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn8 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 16px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover, .btn5:hover, .btn6:hover, .btn7:hover, .btn8:hover {
+    background-color: #b77676
+}
+
+button.main {
+    background: inherit;
+    border-radius: 6px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #fff;
+    height: 40px;
+    width: 140px;
+    transition: all 0.2s ease-in-out
+}
+
+button.main a{
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+button.main:hover, button.main:focus {
+    background-color: #5a5959;
+    transform: translateY(-0.25em)
+}
+
+.fa-github:before {
+    content: "\f09b"
+}
+
+i {
+    font-size: 160%;
+    color: white;
+}
+
+.btn2, .btn21, .btn22, .btn23, .btn24 {
+border-radius: 6px;
+margin: 5px;
+padding: 6px;
+color: hsl(0deg, 69%, 90%);
+text-align: center;
+text-decoration: none;
+width: 50px;
+background-size: 50% auto;
+font-size: 15px;
+background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 122, 0.8) 50%);
+transition: background-color 0.2s ease-in-out;
+}
+
+.btn2:hover, .btn21:hover, .btn22:hover, .btn23:hover, .btn24:hover {
+background-color: #b77676
+}
