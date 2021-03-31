@@ -389,8 +389,8 @@ background-color: #b77676
             -ms-transform: translateY(-100%);  /* IE 9 */
                 transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
 
-        -webkit-transition: all 0.7s 1s ease-out;  
-                transition: all 0.7s 1s ease-out;
+        -webkit-transition: all 0.3s 1s ease-out;  
+                transition: all 0.3s 1s ease-out;
     }
     
     /* JavaScript Turned Off */
