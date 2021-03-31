@@ -260,11 +260,6 @@ transition: background-color 0.2s ease-in-out;
 background-color: #b77676
 }
 
-#loader-wrapper {
-    overflow: hidden;
-    /* z-index: 1001; */
-}
-
 #loader {
     display: block;
     position: absolute;
