@@ -339,7 +339,7 @@ background-color: #b77676
 
     #loader-wrapper .loader-section {
         position: absolute;
-        top: 0;
+        top: 50%;
         width: 51%;
         height: 100%;
         background: #222222;
