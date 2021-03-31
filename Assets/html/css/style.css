@@ -262,6 +262,7 @@ background-color: #b77676
 
 #loader-wrapper {
     overflow: hidden;
+    z-index: 1001;
 }
 
 #loader {
@@ -279,7 +280,7 @@ background-color: #b77676
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 
-    z-index: 1001;
+    z-index: 1002;
 }
 
     #loader:before {
@@ -343,7 +344,7 @@ background-color: #b77676
         width: 50%;
         height: 100%;
         background: #222222;
-        z-index: 1000;
+        z-index: 1001;
         -webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
         -ms-transform: translateX(0);  /* IE 9 */
         transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
