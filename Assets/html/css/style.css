@@ -374,8 +374,8 @@ background-color: #b77676
     
     .loaded #loader {
         opacity: 0;
-        -webkit-transition: all 0.7s ease-out;  
-                transition: all 0.7s ease-out;
+        -webkit-transition: all 0.3s ease-out;  
+                transition: all 0.3s ease-out;
     }
     .loaded #loader-wrapper {
         visibility: hidden;
