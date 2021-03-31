@@ -89,7 +89,16 @@
 				</div>
         		</div>
     		</div>
-	    	<script src = "/Assets/html/js/main.js"></script>
+	    	<script type = "text/javascript">
+			$(document).ready(function() {
+				setTimeout(function() {
+					$('body').addClass('loaded');
+				}, 3000);
+				setTimeout(function() {
+					document.getElementById('loader-wrapper').remove();
+				}, 4000)
+			});
+		</script>
 	    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</body>
 </html>
