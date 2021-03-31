@@ -338,7 +338,7 @@ background-color: #b77676
     }
 
     #loader-wrapper .loader-section {
-        position: fixed;
+        position: absolute;
         top: 0;
         width: 51%;
         height: 100%;
