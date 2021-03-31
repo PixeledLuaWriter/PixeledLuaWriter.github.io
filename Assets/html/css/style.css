@@ -262,7 +262,7 @@ background-color: #b77676
 
 #loader-wrapper {
     overflow: hidden;
-    z-index: 1001;
+    /* z-index: 1001; */
 }
 
 #loader {
