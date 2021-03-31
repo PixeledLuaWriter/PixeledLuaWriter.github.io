@@ -268,7 +268,7 @@ background-color: #b77676
     width: 150px;
     height: 150px;
     margin: -75px 0 0 -75px;
-    border-radius: 50%;
+    border-radius: 100%;
     border: 3px solid transparent;
     border-top-color: #e74c3c;
 
@@ -285,7 +285,7 @@ background-color: #b77676
         left: 5px;
         right: 5px;
         bottom: 5px;
-        border-radius: 50%;
+        border-radius: 100%;
         border: 3px solid transparent;
         border-top-color: #09c922;
 
@@ -300,7 +300,7 @@ background-color: #b77676
         left: 15px;
         right: 15px;
         bottom: 15px;
-        border-radius: 50%;
+        border-radius: 100%;
         border: 3px solid transparent;
         border-top-color: #3498db;
 
