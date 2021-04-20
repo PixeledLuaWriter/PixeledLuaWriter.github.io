@@ -9,13 +9,7 @@ background: linear-gradient(170deg, rgba(12, 12, 12, 0.8) 10%, rgba(22, 22, 22, 
 }
 
 body {
-
-    margin: 0;
-    padding: 0;
-    display: block;
-    height: 100%;
-    width: 100%;
-    font-family: cursive;
+    font-family: 'Comic Sans MS';
 }
 
 #app-root {
@@ -27,10 +21,6 @@ body {
 
 #app-root:focus {
     outline: none;
-}
-
-div {
-    display: block;
 }
 
 .inner {
