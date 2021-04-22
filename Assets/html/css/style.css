@@ -232,7 +232,7 @@ i {
     color: white;
 }
 
-.btn2, .btn21, .btn22, .btn23, .btn24 {
+.btn2, .btn21, .btn22, .btn23, .btn24, .btn25 {
 border-radius: 6px;
 margin: 5px;
 padding: 6px;
@@ -246,7 +246,7 @@ background: linear-gradient(-30deg, rgba(56, 56, 56, 0.8) 50%, rgba(122, 122, 12
 transition: background-color 0.2s ease-in-out;
 }
 
-.btn2:hover, .btn21:hover, .btn22:hover, .btn23:hover, .btn24:hover {
+.btn2:hover, .btn21:hover, .btn22:hover, .btn23:hover, .btn24:hover, .btn25:hover {
 background-color: #b77676
 }
 
