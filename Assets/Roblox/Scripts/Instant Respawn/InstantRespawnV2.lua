@@ -9,9 +9,9 @@ Con1,Con2,Con3 = nil,nil,nil
 
 --[[ Function/Connection Settings ]]
 
-Con1 = Players:GetPropertyChangedSignal("PlayerAdded"):Connect(function(User)
-    Con2 = User:GetPropertyChangedSignal("CharacterAdded"):Connect(function(UserChar)
-        Con3 = UserChar:FindFirstChildOfClass'Humanoid':GetPropertyChangedSignal("Died"):Connect(function()
+Con1 = Players.PlayerAdded:Connect(function(User)
+    Con2 = User.CharacterAdded:Connect(function(UserChar)
+        Con3 = UserChar:FindFirstChildOfClass'Humanoid'.Died:Connect(function()
             User:LoadCharacter(true)
         end)
     end)
