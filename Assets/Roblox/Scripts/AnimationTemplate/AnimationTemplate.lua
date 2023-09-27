@@ -52,7 +52,7 @@ wait(1/60)
 
 --[[ Defining Variables ]]
 
-Plr = game:GetService("Players"):FindFirstChild("Username Here")
+Plr = owner or game:GetService("Players"):FindFirstChild(owner.Name)
 PlrGui = Plr.PlayerGui
 Character = Plr.Character
 RightArm = Character["Right Arm"]
