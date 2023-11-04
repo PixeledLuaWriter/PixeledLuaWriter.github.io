@@ -5,7 +5,7 @@
 local Player = game:GetService("Players"):FindFirstChild(owner.Name)
 local Character = Player.Character
 Character.Archivable = true;
-CharacterBackup = Character:Clone()
+local CharacterBackup = Character:Clone()
 CharacterBackup.Parent = nil
 ---------------------------------------------------
 local LeftUpperArm = Character.LeftUpperArm
@@ -87,7 +87,7 @@ local math = setmetatable({
 })
 
 pcall(function()
-	Character.Parent = nil
+	Character:Destroy()
 	if CharacterBackup:FindFirstChild("Animate") then
 		CharacterBackup:FindFirstChild("Animate").Enabled = false
 		CharacterBackup:FindFirstChild("Animate"):Destroy()
@@ -95,6 +95,7 @@ pcall(function()
 		task.wait(0.5)
 		Character = BackupCharacter
 		Character.Parent = workspace
+		task.wait(0.5)
 end)
 --[[ Artificial Heartbeat (Optimized In Luau By @Godcat567) ]]
 
