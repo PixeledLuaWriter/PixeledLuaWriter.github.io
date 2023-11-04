@@ -92,11 +92,9 @@ pcall(function()
 		CharacterBackup:FindFirstChild("Animate").Enabled = false
 		CharacterBackup:FindFirstChild("Animate"):Destroy()
 	end
-		task.wait(0.5)
 		Character = CharacterBackup
-		Charcter.Parent = workspace
-		Player.Character = Character
 		task.wait(0.5)
+		Charcter.Parent = workspace
 end)
 --[[ Artificial Heartbeat (Optimized In Luau By @Godcat567) ]]
 
@@ -358,15 +356,17 @@ end
 
 --[[ Miscellaneous Stuff ]]
 
-PreloadAssets({15258212182})
+--PreloadAssets({15258212182})
 
 local Sounda = NewSound({
 	SoundID = 15258212182,
 	Volume = 1,
 	Pitch = 1,
 	AutoPlay = true,
+	Playing = false,
 	IsDebrisedAfter = false,
-	Parent = LowerTorso
+	Parent = LowerTorso,
+	IsLooped = true
 })
 
 while Character.Parent ~= nil do
