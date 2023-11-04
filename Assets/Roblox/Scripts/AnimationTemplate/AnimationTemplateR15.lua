@@ -93,7 +93,7 @@ pcall(function()
 		CharacterBackup:FindFirstChild("Animate"):Destroy()
 	end
 		task.wait(0.5)
-		Character = BackupCharacter
+		Character = CharacterBackup
 		Character.Parent = workspace
 		task.wait(0.5)
 end)
