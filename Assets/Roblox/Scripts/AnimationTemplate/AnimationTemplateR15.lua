@@ -84,15 +84,17 @@ local math = setmetatable({
 	__index = math;
 })
 
+pcall(function()
+		Character.Parent = nil
+end)
+
 if Character:FindFirstChild("Animate") then
 	Character:FindFirstChild("Animate").Enabled = false
 	Character:FindFirstChild("Animate"):Destroy()
 end
 
 pcall(function()
-	Humanoid.PlatformStand = true
-	task.wait(1)
-	Humanoid.PlatformStand = false
+		Character.Parent = workspace
 end)
 
 --[[ Artificial Heartbeat (Optimized In Luau By @Godcat567) ]]
@@ -363,7 +365,6 @@ local Sounda = NewSound({
 	Pitch = 1,
 	AutoPlay = true,
 	IsDebrisedAfter = false,
-	Playing = false,
 	Parent = LowerTorso
 })
 
