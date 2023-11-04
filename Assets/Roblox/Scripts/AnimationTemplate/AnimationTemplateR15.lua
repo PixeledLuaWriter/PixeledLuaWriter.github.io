@@ -93,9 +93,9 @@ pcall(function()
 		CharacterBackup:FindFirstChild("Animate"):Destroy()
 	end
 		task.wait(0.5)
-		Player.Character = CharacterBackup
-		Character = Player.Character
+		Character = CharacterBackup
 		Charcter.Parent = workspace
+		Player.Character = Character
 		task.wait(0.5)
 end)
 --[[ Artificial Heartbeat (Optimized In Luau By @Godcat567) ]]
