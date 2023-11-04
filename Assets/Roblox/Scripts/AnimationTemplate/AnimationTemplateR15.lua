@@ -4,7 +4,9 @@
 -- Sources May Be Used From Other Scripts, Credits To Their Original Creators.
 local Player = game:GetService("Players"):FindFirstChild(owner.Name)
 local Character = Player.Character
-
+Character.Archivable = true;
+CharacterBackup = Character:Clone()
+CharacterBackup.Parent = nil
 ---------------------------------------------------
 local LeftUpperArm = Character.LeftUpperArm
 local LeftShoulder = Character.LeftUpperArm.LeftShoulder
@@ -85,18 +87,15 @@ local math = setmetatable({
 })
 
 pcall(function()
-		Character.Parent = nil
-end)
-
-if Character:FindFirstChild("Animate") then
-	Character:FindFirstChild("Animate").Enabled = false
-	Character:FindFirstChild("Animate"):Destroy()
-end
-
-pcall(function()
+	Character.Parent = nil
+	if CharacterBackup:FindFirstChild("Animate") then
+		CharacterBackup:FindFirstChild("Animate").Enabled = false
+		CharacterBackup:FindFirstChild("Animate"):Destroy()
+	end
+		task.wait(0.5)
+		Character = BackupCharacter
 		Character.Parent = workspace
 end)
-
 --[[ Artificial Heartbeat (Optimized In Luau By @Godcat567) ]]
 
 local ArtificialHB = Instance.new("BindableEvent")
