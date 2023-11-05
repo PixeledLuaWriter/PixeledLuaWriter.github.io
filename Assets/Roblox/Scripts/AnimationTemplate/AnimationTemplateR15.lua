@@ -1,8 +1,10 @@
 --[[ FileName: R15_Template.lua ]]
 --[[ Author: @Godcat567 ]]
 
+task.wait()
+
 -- Sources May Be Used From Other Scripts, Credits To Their Original Creators.
-local Player = game:GetService("Players"):FindFirstChild(owner.Name)
+local Player = (typeof(owner) == "Instance" and owner) or game:GetService("Players"):FindFirstChild(owner.Name)
 Player.Character.Archivable = true
 local CharacterBackup = Player.Character:Clone()
 CharacterBackup.Parent = nil
@@ -87,10 +89,10 @@ local Instance = setmetatable({
 
 local math = setmetatable({
 	cotan = function(arg)
-		return (math.sin(arg/2) * math.cos(arg/2))
+		return (math.sin(arg / 2) * math.cos(arg / 2))
 	end,
 	acotan = function(arg)
-		return (math.asin(arg/2) * math.acos(arg/2))
+		return (math.asin(arg / 2) * math.acos(arg / 2))
 	end,
 }, {
 	__index = math;
@@ -348,24 +350,24 @@ function NewSound(data)
 	end
 end
 
--- function PreloadAssets(assetsList)
--- 	return game:GetService("ContentProvider"):PreloadAsync(assetsList)
--- end
+function PreloadAssets(assetsList)
+	game:GetService("ContentProvider"):PreloadAsync(assetsList, nil)
+end
 
 --[[ Miscellaneous Stuff ]]
 
 -- PreloadAssets({15258212182})
 
-local Sounda = NewSound({
-	SoundID = 15258212182,
-	Volume = 1,
-	Pitch = 1,
-	AutoPlay = true,
-	IsDebrisedAfter = false,
-	Playing = false,
-	IsLooped = true,
-	Parent = LowerTorso
-})
+--local Sounda = NewSound({
+--	SoundID = 15258212182,
+--	Volume = 1,
+--	Pitch = 1,
+--	AutoPlay = true,
+--	IsDebrisedAfter = false,
+--	Playing = false,
+--	IsLooped = true,
+--	Parent = LowerTorso
+--})
 
 while Character.Parent ~= nil do
 	Swait()
@@ -423,17 +425,17 @@ while Character.Parent ~= nil do
 			AnimTime = 0.1,
 			AnimStyle = Enum.EasingStyle.Quad,
 			AnimDirection = Enum.EasingDirection.Out,
-			RootJoint = CFrame.new(0 - 0.23 * math.cos(Timing.Sine / 52.5), 1 + 0.5 * math.cos(Timing.Sine / 28), 0 + 0.2 * math.cos(Timing.Sine / 34)) * CFrame.Angles(math.rad(-2 + 4 * math.cos(Timing.Sine / 32)), math.rad(0), math.rad(0 - 2.2 * math.cos(Timing.Sine/98) + 3.1 * math.cos(Timing.Sine/86))),
+			RootJoint = CFrame.new(0 - 0.23 * math.cos(Timing.Sine / 52.5), 1.2 + 1 * math.cos(Timing.Sine / 28), 0 + 0.2 * math.cos(Timing.Sine / 34)) * CFrame.Angles(math.rad(-2 + 4 * math.cos(Timing.Sine / 32)), math.rad(0), math.rad(0 - 2.2 * math.cos(Timing.Sine/98) + 3.1 * math.cos(Timing.Sine/86))),
 			Neck = CFrame.Angles(math.rad(2 - 4.5 * math.cos(Timing.Sine / 58)), math.rad(0 + 3.1 * math.cos(Timing.Sine / 42) - 9 * math.cos(Timing.Sine / 26) + 0.4 * math.cos(Timing.Sine / 47)), math.rad(20 + 6.2 * math.cos(Timing.Sine / 76))),
-			RightShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad(0), math.rad(0 - 2 * math.cos(Timing.Sine / 43)), math.rad(10 - 5 * math.cos(Timing.Sine / 20))),
-			LeftShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad(0), math.rad(0 + 2 * math.cos(Timing.Sine / 43)), math.rad(-10 + 5 * math.cos(Timing.Sine / 20))),
-			RightHip = CFrame.new(0, 0.2, -0.5) * CFrame.Angles(math.rad(-2.5 - 4.5 * math.cos(Timing.Sine/38)), math.rad(-20), math.rad(0)),
-			LeftHip = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(-1.5 - 3.5 * math.cos(Timing.Sine/22)), math.rad(20), math.rad(0)),
-			RightElbow = CFrame.Angles(math.rad(2.12 + 4.42 * math.cos(Timing.Sine / 37.2)), math.rad(0), math.rad(0)),
-			LeftElbow = CFrame.Angles(math.rad(2.12 + 4.42 * math.cos(Timing.Sine / 37.2)), math.rad(0), math.rad(0)),
+			RightShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad(0), math.rad(0 - 2 * math.cos(Timing.Sine / 43)), math.rad(10 - 5 * math.cos(Timing.Sine / 28))),
+			LeftShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad(0), math.rad(0 + 2 * math.cos(Timing.Sine / 43)), math.rad(-10 + 5 * math.cos(Timing.Sine / 28))),
+			RightHip = CFrame.new(0, 0.2, -0.5) * CFrame.Angles(math.rad(-2.5 - 4.5 * math.cos(Timing.Sine/38)), math.rad(-20), math.rad(-6.2 - 3.45 * math.cos(Timing.Sine / 38.53))),
+			LeftHip = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(-4.25 - 2.3 * math.cos(Timing.Sine/22)), math.rad(20), math.rad(5.7 + 3.13 * math.cos(Timing.Sine / 32.91))),
+			RightElbow = CFrame.Angles(math.rad(8.32 - 1.351 * math.cos(Timing.Sine / 37.2) + 9.23 * math.cos(Timing.Sine / 41.54)), math.rad(0), math.rad(0)),
+			LeftElbow = CFrame.Angles(math.rad(8.51 - 1.351 * math.cos(Timing.Sine / 37.2) + 9.23 * math.cos(Timing.Sine / 41.54)), math.rad(0), math.rad(0)),
 			Waist = CFrame.Angles(math.rad(-2 + 4 * math.cos(Timing.Sine / 32)), math.rad(0), math.rad(0)),
-			RightKnee = CFrame.Angles(math.rad(-6.12 - 2.14 * math.cos(Timing.Sine / 58.21)), math.rad(0), math.rad(0)),
-			LeftKnee = CFrame.Angles(math.rad(-7.86 - 1.63 * math.cos(Timing.Sine / 52.1)), math.rad(0), math.rad(0))
+			RightKnee = CFrame.Angles(math.rad(-12.32 - 4.42 * math.cos(Timing.Sine / 42.21)), math.rad(0), math.rad(0)),
+			LeftKnee = CFrame.Angles(math.rad(-10.86 - 6.10 * math.cos(Timing.Sine / 38.1)), math.rad(0), math.rad(0))
 		})
 		if Random.new():NextInteger(1, 64) == 1 then
 			SetTween(Neck, {
@@ -451,16 +453,16 @@ while Character.Parent ~= nil do
 			AnimTime = 0.1,
 			AnimStyle = Enum.EasingStyle.Quad,
 			AnimDirection = Enum.EasingDirection.Out,
-			RootJoint = CFrame.new(0, 1 + 0.5 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad(-(ForwardVec + ForwardVec / 5 * 20.5)), math.rad(0), math.rad(-(SideVec + SideVec / 5 * 10.21))),
-			RightShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad((ForwardVec - ForwardVec / 5 * 30.45)), math.rad(0 - 2 * math.cos(Timing.Sine / 43)), math.rad(10 - 5 * math.cos(Timing.Sine / 20))),
-			LeftShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad((ForwardVec - ForwardVec / 5 * 30.45)), math.rad(0 + 2 * math.cos(Timing.Sine / 43)), math.rad(-10 + 5 * math.cos(Timing.Sine / 20))),
-			RightHip = CFrame.new(0, 0.2, -0.5) * CFrame.Angles(math.rad(-2.5 - 4.5 * math.cos(Timing.Sine/38)), math.rad(-20), math.rad(-12) * SideVec),
-			LeftHip = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(-1.5 - 3.5 * math.cos(Timing.Sine/22)), math.rad(20), math.rad(12) * SideVec),
-			RightElbow = CFrame.Angles(math.rad(4.12 + 4.42 * math.cos(Timing.Sine / 37.2)), math.rad(0), math.rad(0)),
-			LeftElbow = CFrame.Angles(math.rad(4.12 + 4.42 * math.cos(Timing.Sine / 37.2)), math.rad(0), math.rad(0)),
-			Waist = CFrame.Angles(math.rad(-2 + 4 * math.cos(Timing.Sine / 32)), math.rad(0), math.rad(0)),
-			RightKnee = CFrame.Angles(math.rad(-6.12 - 2.14 * math.cos(Timing.Sine / 58.21)), math.rad(0), math.rad(0)),
-			LeftKnee = CFrame.Angles(math.rad(-7.86 - 1.63 * math.cos(Timing.Sine / 52.1)), math.rad(0), math.rad(0))
+			RootJoint = CFrame.new(0 - 0.23 * math.cos(Timing.Sine / 52.5), 1.2 + 1 * math.cos(Timing.Sine / 28), 0 + 0.2 * math.cos(Timing.Sine / 34)) * CFrame.Angles(math.rad(-(ForwardVec + ForwardVec / 5 * 20.5)), math.rad(0), math.rad(-(SideVec + SideVec / 5 * 10.21))) * CFrame.Angles(math.rad(-2 + 4 * math.cos(Timing.Sine / 32)), math.rad(0), math.rad(0 - 2.2 * math.cos(Timing.Sine/98) + 3.1 * math.cos(Timing.Sine/86))),
+			RightShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad((ForwardVec - ForwardVec / 5 * 30.45)), math.rad(0 - 2 * math.cos(Timing.Sine / 43)), math.rad(10 - 5 * math.cos(Timing.Sine / 28))),
+			LeftShoulder = CFrame.new(0, 0 + 0.05 * math.cos(Timing.Sine / 28), 0) * CFrame.Angles(math.rad((ForwardVec - ForwardVec / 5 * 30.45)), math.rad(0 + 2 * math.cos(Timing.Sine / 43)), math.rad(-10 + 5 * math.cos(Timing.Sine / 28))),
+			RightHip = CFrame.new(0, 0.2, -0.5) * CFrame.Angles(math.rad(-2.5 - 4.5 * math.cos(Timing.Sine/38)), math.rad(-20), math.rad(-12.42) * SideVec - math.rad(12.42) * ForwardVec),
+			LeftHip = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(-4.25 - 2.3 * math.cos(Timing.Sine/22)), math.rad(20), math.rad(12.42) * SideVec - math.rad(-12.42) * ForwardVec),
+			RightElbow = CFrame.Angles(math.rad(8.32 - 1.351 * math.cos(Timing.Sine / 37.2) + 9.23 * math.cos(Timing.Sine / 41.54)), math.rad(0), math.rad(0)),
+			LeftElbow = CFrame.Angles(math.rad(8.51 - 1.351 * math.cos(Timing.Sine / 37.2) + 9.23 * math.cos(Timing.Sine / 41.54)), math.rad(0), math.rad(0)),
+			Waist = CFrame.Angles(math.rad(-2 + 4 * math.cos(Timing.Sine / 32)), math.rad(0), math.rad((SideVec - SideVec / 5 * 10.2))),
+			RightKnee = CFrame.Angles(math.rad(-12.32 - 4.42 * math.cos(Timing.Sine / 42.21)), math.rad(0), math.rad(0)),
+			LeftKnee = CFrame.Angles(math.rad(-10.86 - 6.10 * math.cos(Timing.Sine / 38.1)), math.rad(0), math.rad(0))
 		})
 	elseif State == "Paralyzed" then
 		-- Right Arm
