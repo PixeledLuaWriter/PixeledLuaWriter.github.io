@@ -348,13 +348,13 @@ function NewSound(data)
 	end
 end
 
-function PreloadAssets(assetsList)
-	return game:GetService("ContentProvider"):PreloadAsync(assetsList)
-end
+-- function PreloadAssets(assetsList)
+-- 	return game:GetService("ContentProvider"):PreloadAsync(assetsList)
+-- end
 
 --[[ Miscellaneous Stuff ]]
 
-PreloadAssets({15258212182})
+-- PreloadAssets({15258212182})
 
 local Sounda = NewSound({
 	SoundID = 15258212182,
