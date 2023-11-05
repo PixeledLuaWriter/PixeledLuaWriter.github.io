@@ -2,7 +2,7 @@
 --[[ Author: @Godcat567 ]]
 
 -- Sources May Be Used From Other Scripts, Credits To Their Original Creators.
-local Player = game:GetService("Players"):FindFirstChild("Godcat567")
+local Player = game:GetService("Players"):FindFirstChild(owner.Name)
 Player.Character.Archivable = true
 local CharacterBackup = Player.Character:Clone()
 CharacterBackup.Parent = nil
