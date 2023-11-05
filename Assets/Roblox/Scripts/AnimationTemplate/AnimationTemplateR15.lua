@@ -364,18 +364,20 @@ end
 
 --[[ Miscellaneous Stuff ]]
 
--- PreloadAssets({15258212182})
-
---local Sounda = NewSound({
---	SoundID = 15258212182,
---	Volume = 1,
---	Pitch = 1,
---	AutoPlay = true,
---	IsDebrisedAfter = false,
---	Playing = false,
---	IsLooped = true,
---	Parent = LowerTorso
---})
+if game.PlaceId == 4994196290 then
+	--PreloadAssets({15258212182})
+	
+	local Sounda = NewSound({
+		SoundID = 15258212182,
+		Volume = 1,
+		Pitch = 1,
+		AutoPlay = true,
+		IsDebrisedAfter = false,
+		Playing = false,
+		IsLooped = true,
+		Parent = LowerTorso
+	})
+end
 
 while Character.Parent ~= nil do
 	Swait()
