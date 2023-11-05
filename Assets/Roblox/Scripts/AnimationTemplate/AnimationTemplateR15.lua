@@ -130,7 +130,7 @@ game:GetService("RunService").Heartbeat:Connect(function(currentStep, deltaTime)
 end)
 
 function Swait(dur)
-	if(dur == 0 or typeof(dur) ~= 'number') then
+	if(dur == 0 or dur == nil or typeof(dur) ~= 'number') then
 		ArtificialHB.Event:wait()
 	else
 		for i= 1, dur * FramesPerSecond do
@@ -370,7 +370,7 @@ end
 --})
 
 while Character.Parent ~= nil do
-	Swait()
+	Swait(0)
 	Timing.Sine = (tick() - StartTick) * 60 + Timing.Change
 	local RayResult = RayCast({
 		Origin = RootPart.CFrame.Position,
