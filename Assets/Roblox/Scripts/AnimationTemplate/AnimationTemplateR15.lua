@@ -3,6 +3,14 @@
 
 task.wait()
 
+print([[
+	R15 Animation Template
+
+	Author: Protofloof (@Godcat567)
+
+	I Do Not Care If People Call This A "Rare" Script, I only Believe in Open Source, And Closed Source.
+]])
+
 -- Sources May Be Used From Other Scripts, Credits To Their Original Creators.
 local Player = (typeof(owner) == "Instance" and owner) or game:GetService("Players"):FindFirstChild(owner.Name)
 Player.Character.Archivable = true
@@ -370,7 +378,7 @@ end
 --})
 
 while Character.Parent ~= nil do
-	Swait(0)
+	Swait()
 	Timing.Sine = (tick() - StartTick) * 60 + Timing.Change
 	local RayResult = RayCast({
 		Origin = RootPart.CFrame.Position,
