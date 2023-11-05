@@ -2,11 +2,21 @@
 --[[ Author: @Godcat567 ]]
 
 -- Sources May Be Used From Other Scripts, Credits To Their Original Creators.
-local Player = game:GetService("Players"):FindFirstChild(owner.Name)
-local Character = Player.Character
-Character.Archivable = true;
-local CharacterBackup = Character:Clone()
+local Player = game:GetService("Players"):FindFirstChild("Godcat567")
+Player.Character.Archivable = true
+local CharacterBackup = Player.Character:Clone()
 CharacterBackup.Parent = nil
+Player.Character = nil
+
+if CharacterBackup:FindFirstChild("Animate") then
+	CharacterBackup:FindFirstChild("Animate").Enabled = false;
+	CharacterBackup:FindFirstChild("Animate"):Destroy()
+end
+
+Player.Character = CharacterBackup:Clone()
+Player.Character.Parent = workspace
+
+local Character = Player.Character
 ---------------------------------------------------
 local LeftUpperArm = Character.LeftUpperArm
 local LeftShoulder = Character.LeftUpperArm.LeftShoulder
@@ -86,16 +96,6 @@ local math = setmetatable({
 	__index = math;
 })
 
-pcall(function()
-	Character:Destroy()
-	if CharacterBackup:FindFirstChild("Animate") then
-		CharacterBackup:FindFirstChild("Animate").Enabled = false
-		CharacterBackup:FindFirstChild("Animate"):Destroy()
-	end
-		Character = CharacterBackup
-		task.wait(0.5)
-		Charcter.Parent = workspace
-end)
 --[[ Artificial Heartbeat (Optimized In Luau By @Godcat567) ]]
 
 local ArtificialHB = Instance.new("BindableEvent")
@@ -349,24 +349,22 @@ function NewSound(data)
 end
 
 function PreloadAssets(assetsList)
-	for _,v in next, assetsList do
-		game:GetService("ContentProvider"):Preload("http://roblox.com/asset/?id=" .. v)
-	end
+	return game:GetService("ContentProvider"):PreloadAsync(assetsList)
 end
 
 --[[ Miscellaneous Stuff ]]
 
---PreloadAssets({15258212182})
+PreloadAssets({15258212182})
 
 local Sounda = NewSound({
 	SoundID = 15258212182,
 	Volume = 1,
 	Pitch = 1,
 	AutoPlay = true,
-	Playing = false,
 	IsDebrisedAfter = false,
-	Parent = LowerTorso,
-	IsLooped = true
+	Playing = false,
+	IsLooped = true,
+	Parent = LowerTorso
 })
 
 while Character.Parent ~= nil do
