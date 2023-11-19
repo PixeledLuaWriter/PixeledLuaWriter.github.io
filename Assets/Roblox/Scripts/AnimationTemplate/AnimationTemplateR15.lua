@@ -68,10 +68,10 @@ local Humanoid = Character:FindFirstChildOfClass("Humanoid")
 --[[ Settings ]]
 
 local IsAttacking = false
-local StartTick = tick()
 local Timing = {
-	Sine = nil;
-	Change = 1
+	Sine = 0;
+	Change = 1;
+	LastFrame = tick();
 }
 local Hitfloor = nil; -- Raycast Touching Instance
 local Posfloor = nil; -- Raycast Getting Instance Normal
@@ -381,7 +381,8 @@ end
 
 while Character.Parent ~= nil do
 	Swait()
-	Timing.Sine = (tick() - StartTick) * 60 + Timing.Change
+	Timing.Sine += (tick() - Timing.LastFrame) * 60 * Timing.Change
+	Timing.LastFrame = tick()
 	local RayResult = RayCast({
 		Origin = RootPart.CFrame.Position,
 		Direction = CFrame.new(RootPart.CFrame.Position, RootPart.CFrame.Position - Vector3.new(0, 1, 0)).LookVector,
