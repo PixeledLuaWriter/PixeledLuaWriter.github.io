@@ -113,38 +113,57 @@ end)
 
 --[[ Customizable Settings ]]
 
-sinetick = 0
-change = 1
+local Timing = {
+	Sine = 0;
+	Change = 1;
+	Internals = {
+		FramesPerSecond = 60;
+		LastCurrentSineFrame = tick();
+	};
+}
 Speed = 16
 JumpPow = 80
 IsAttacking = false
---[[ Artificial Heartbeat [Adapted By Nebula_Zoroark] ]]
 
-AHB = Instance.new("BindableEvent")
-FPS = 60
-LastFrame = tick()
-TimeFrame = 0
-Frame = 1/FPS
+--[[ Artificial Heartbeat Rewritten By Protofloof (@Godcat567) ]]
 
-game:GetService("RunService").Heartbeat:Connect(function(s,p)
-	TimeFrame = TimeFrame + s
-	if(TimeFrame>=Frame)then
-		for i=1,math.floor(TimeFrame/Frame) do
-			AHB:Fire()
-		end
-		LastFrame=tick()
-		TimeFrame=TimeFrame-Frame*math.floor(TimeFrame/Frame)
-	end
+local ArtificialHB = Instance.new("BindableEvent")
+local FramesPerSecond = 60
+local TimeFrame = 0
+local AllowTossedFrames = true;
+local TossRemainingFrames = true;
+local LastCurrentFrame = tick()
+local CurrentFrame = 1 / FramesPerSecond
+ArtificialHB:Fire()
+
+game:GetService("RunService").Heartbeat:Connect(function(currentStep, deltaTime)
+    TimeFrame += currentStep
+    if(TimeFrame >= CurrentFrame) then
+        if (AllowTossedFrames) then
+            ArtificialHB:Fire()
+            LastCurrentFrame = tick()
+        else
+            for i = 1, math.floor(TimeFrame / CurrentFrame) do
+                ArtificialHB:Fire()
+            end
+            LastCurrentFrame = tick()
+        end
+        if (TossRemainingFrames) then
+            TimeFrame = 0;
+        else
+            TimeFrame -= CurrentFrame * math.floor(TimeFrame / CurrentFrame)
+        end
+    end
 end)
 
 function Swait(dur)
-	if(dur == 0 or typeof(dur) ~= 'number') then
-		AHB.Event:wait()
-	else
-		for i= 1, dur*FPS do
-			AHB.Event:wait()
-		end
-	end
+    if(dur == 0 or dur == nil or typeof(dur) ~= 'number') then
+        ArtificialHB.Event:Wait()
+    else
+        for i= 1, dur * FramesPerSecond do
+            ArtificialHB.Event:Wait()
+        end
+    end
 end
 
 --[[ Functions ]]
@@ -294,7 +313,8 @@ while (not false) do
 	local torsvertvel = RootPart.Velocity.Y
 	local hflr,psflr = workspace:FindPartOnRayWithIgnoreList(Ray.new(RootPart.CFrame.p,((CFrame.new(RootPart.Position,RootPart.Position - Vector3.new(0,1,0))).lookVector).unit * (4)), {Character})
 	spval = 25/(Humanoid.WalkSpeed/16)
-	sinetick=sinetick+change
+	Timing.Sine += (tick() - Timing.Internals.LastCurrentSineFrame) * (Timing.Internals.FramesPerSecond) * (Timing.Change)
+	Timing.Internals.LastCurrentSineFrame = tick();
 	--Humanoid.WalkSpeed = Speed
 	Humanoid.JumpPower = JumpPow
 	Humanoid.Health = "NAN"
@@ -335,7 +355,7 @@ while (not false) do
 	Humanoid.WalkSpeed = Speed/Div
 
 	--[[if Plr.Name == "Godcat567" then
-	SetJointTween(Tail,{C0 = TailCF*CFrame.Angles(math.rad(0),math.rad(20 * math.sin(sinetick/60*2.5)),math.rad(0))},"Quad","Out",InterpolationSpeed)
+	SetJointTween(Tail,{C0 = TailCF*CFrame.Angles(math.rad(0),math.rad(20 * math.sin(Timing.Sine/60*2.5)),math.rad(0))},"Quad","Out",InterpolationSpeed)
 	end
 	ignore this i only created the tail weld for the Black & White Cyber Critter Tails
 	--]]
@@ -343,9 +363,9 @@ while (not false) do
 	if IsAttacking == false then
 		if Anima == "jump" then
 			if torsvertvel <= 400 then
-				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(sinetick/22))*CFrame.Angles(math.rad(0 + torsvertvel/10),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
+				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(Timing.Sine/22))*CFrame.Angles(math.rad(0 + torsvertvel/10),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
 			elseif torsvertvel > 400 then
-				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(sinetick/22))*CFrame.Angles(math.rad(-40),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
+				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(Timing.Sine/22))*CFrame.Angles(math.rad(-40),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
 			end
 			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad(0),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
 			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad(-10),math.rad(0),math.rad(0 + torsvertvel/2))*RightShoulderCF},"Quad","Out",InterpolationSpeed)
@@ -354,9 +374,9 @@ while (not false) do
 			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-1,-0)*CFrame.Angles(math.rad(0),math.rad(-90),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
 		elseif Anima == "fall" then
 			if torsvertvel >= -400 then
-				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(sinetick/22))*CFrame.Angles(math.rad(0 - torsvertvel/10),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
+				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(Timing.Sine/22))*CFrame.Angles(math.rad(0 - torsvertvel/10),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
 			elseif torsvertvel < -400 then
-				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(sinetick/22))*CFrame.Angles(math.rad(40),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
+				SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,-.1 + .01 * math.cos(Timing.Sine/22))*CFrame.Angles(math.rad(40),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
 			end
 			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad(20),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
 			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad(80 - torsvertvel/2),math.rad(0),math.rad(0 - torsvertvel/5))*RightShoulderCF},"Quad","Out",InterpolationSpeed)
@@ -364,29 +384,29 @@ while (not false) do
 			SetJointTween(RightHip,{C0 = CFrame.new(1,-.5,-.5)*CFrame.Angles(math.rad(-10),math.rad(90),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
 			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-1,-0)*CFrame.Angles(math.rad(-20),math.rad(-90),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
 		elseif Anima == "idle" then
-			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,0 + .05 * math.cos(sinetick/22/2))*CFrame.Angles(math.rad(0),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
-			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad(0 + 2.5 * math.cos(sinetick/22/2)),math.rad(0),math.rad(0 + 20 * math.cos(sinetick/22/2)))},"Quad","Out",InterpolationSpeed)
-			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad(0),math.rad(0),math.rad(5 + 2.5 * math.cos(sinetick/22/2)))*RightShoulderCF},"Quad","Out",InterpolationSpeed)
-			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.5,.5,0)*CFrame.Angles(math.rad(0),math.rad(0),math.rad(-5 - 2.5 * math.cos(sinetick/22/2)))*LeftShoulderCF},"Quad","Out",InterpolationSpeed)
-			SetJointTween(RightHip,{C0 = CFrame.new(1,-1 - .05 * math.cos(sinetick/22/2),-0)*CFrame.Angles(math.rad(0),math.rad(87),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
-			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-1 - .05 * math.cos(sinetick/22/2),-0)*CFrame.Angles(math.rad(0),math.rad(-87),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
+			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,0 + .05 * math.cos(Timing.Sine/22/2))*CFrame.Angles(math.rad(0),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
+			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad(0 + 2.5 * math.cos(Timing.Sine/22/2)),math.rad(0),math.rad(0 + 20 * math.cos(Timing.Sine/22/2)))},"Quad","Out",InterpolationSpeed)
+			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad(0),math.rad(0),math.rad(5 + 2.5 * math.cos(Timing.Sine/22/2)))*RightShoulderCF},"Quad","Out",InterpolationSpeed)
+			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.5,.5,0)*CFrame.Angles(math.rad(0),math.rad(0),math.rad(-5 - 2.5 * math.cos(Timing.Sine/22/2)))*LeftShoulderCF},"Quad","Out",InterpolationSpeed)
+			SetJointTween(RightHip,{C0 = CFrame.new(1,-1 - .05 * math.cos(Timing.Sine/22/2),-0)*CFrame.Angles(math.rad(0),math.rad(87),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
+			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-1 - .05 * math.cos(Timing.Sine/22/2),-0)*CFrame.Angles(math.rad(0),math.rad(-87),0)*CFrame.Angles(math.rad(0),0,0)},"Quad","Out",InterpolationSpeed)
 		elseif Anima == "walk" then
-			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(-0.4 * 1 * ForWLV,-0.4 * (10/10) * ForWLB,-.185 + .155 * (10/10) * math.cos(sinetick/(12/2)))*CFrame.Angles(math.rad(5)*ForWLB,math.rad(5)*-ForWLV,math.rad(4*math.cos(sinetick/12)))},"Circular","Out",0.1)
-			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad((-ForWLB - -ForWLB/5 * math.cos(sinetick/(14/2)))*8),math.rad(0),math.rad((-ForWLV*45+-8 * math.cos(sinetick/12))))},"Circular","Out",0.1)
-			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(sinetick/12))*25 * math.cos(sinetick/12)),math.rad(0),math.rad(5))*RightShoulderCF},"Circular","Out",0.1)
-			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.5,.5,0)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(sinetick/12))*25 * math.cos(sinetick/12)),math.rad(0),math.rad(-5))*LeftShoulderCF},"Circular","Out",0.1)
-			SetJointTween(RightHip,{C0 = CFrame.new(1,-.85 + .25 * (10/10) * math.sin(sinetick/12) / 2,(0.3 * 1 * math.cos(sinetick/12) / 2)*ForWLB)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(sinetick/12))*45 * math.cos(sinetick/12)-math.sin(sinetick/24)),math.rad(0),math.rad((ForWLV - ForWLV/5 * math.cos(sinetick/12))*40 * math.cos(sinetick/12)-math.sin(sinetick/24)))*CFrame.Angles(0,math.rad(90),0)},"Circular","Out",0.1)
-			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-.85 - .25 * (10/10) * math.sin(sinetick/12) / 2,(-0.3 * 1 * math.cos(sinetick/12) / 2)*ForWLB)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(sinetick/12))*45 * math.cos(sinetick/12)+math.sin(sinetick/24)),math.rad(0),math.rad((-ForWLV + ForWLV/5 * math.cos(sinetick/12))*40 * math.cos(sinetick/12)+math.sin(sinetick/24)))*CFrame.Angles(0,math.rad(-90),0)},"Circular","Out",0.1)
+			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(-0.4 * 1 * ForWLV,-0.4 * (10/10) * ForWLB,-.185 + .155 * (10/10) * math.cos(Timing.Sine/(12/2)))*CFrame.Angles(math.rad(5)*ForWLB,math.rad(5)*-ForWLV,math.rad(4*math.cos(Timing.Sine/12)))},"Circular","Out",0.1)
+			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad((-ForWLB - -ForWLB/5 * math.cos(Timing.Sine/(14/2)))*8),math.rad(0),math.rad((-ForWLV*45+-8 * math.cos(Timing.Sine/12))))},"Circular","Out",0.1)
+			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(Timing.Sine/12))*25 * math.cos(Timing.Sine/12)),math.rad(0),math.rad(5))*RightShoulderCF},"Circular","Out",0.1)
+			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.5,.5,0)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(Timing.Sine/12))*25 * math.cos(Timing.Sine/12)),math.rad(0),math.rad(-5))*LeftShoulderCF},"Circular","Out",0.1)
+			SetJointTween(RightHip,{C0 = CFrame.new(1,-.85 + .25 * (10/10) * math.sin(Timing.Sine/12) / 2,(0.3 * 1 * math.cos(Timing.Sine/12) / 2)*ForWLB)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(Timing.Sine/12))*45 * math.cos(Timing.Sine/12)-math.sin(Timing.Sine/24)),math.rad(0),math.rad((ForWLV - ForWLV/5 * math.cos(Timing.Sine/12))*40 * math.cos(Timing.Sine/12)-math.sin(Timing.Sine/24)))*CFrame.Angles(0,math.rad(90),0)},"Circular","Out",0.1)
+			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-.85 - .25 * (10/10) * math.sin(Timing.Sine/12) / 2,(-0.3 * 1 * math.cos(Timing.Sine/12) / 2)*ForWLB)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(Timing.Sine/12))*45 * math.cos(Timing.Sine/12)+math.sin(Timing.Sine/24)),math.rad(0),math.rad((-ForWLV + ForWLV/5 * math.cos(Timing.Sine/12))*40 * math.cos(Timing.Sine/12)+math.sin(Timing.Sine/24)))*CFrame.Angles(0,math.rad(-90),0)},"Circular","Out",0.1)
 		elseif Anima == "run" then
-			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(-0.8 * (10/10) * ForWLV,-0.8 * (10/10) * ForWLB,-.185 + 0.155 * (10/10) * math.cos(sinetick/(6/2)))*CFrame.Angles(math.rad(25)*ForWLB,math.rad(10)*-ForWLV,math.rad(8*math.cos(sinetick/6)))},"Circular","Out",0.1)
-			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad((-ForWLB - -ForWLB/5 * math.cos(sinetick/7))*25),math.rad(0),math.rad((-ForWLV*45+-8 * math.cos(sinetick/6))))},"Circular","Out",0.1)
-			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(sinetick/6))*80 * math.cos(sinetick/6)),math.rad(0),math.rad(5))*RightShoulderCF},"Circular","Out",0.1)
-			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.5,.5,0)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(sinetick/6))*80 * math.cos(sinetick/6)),math.rad(0),math.rad(-5))*LeftShoulderCF},"Circular","Out",0.1)
-			SetJointTween(RightHip,{C0 = CFrame.new(1,-.85 + 0.25 * (10/10) * math.sin(sinetick/6) / 2, (0.6 * 1 * math.cos(sinetick/6) / 2)*ForWLB)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(sinetick/6))*85 * math.cos(sinetick/6)-math.sin(sinetick/12)),math.rad(0),math.rad((ForWLV - ForWLV/5 * math.cos(sinetick/6))*40 * math.cos(sinetick/6)-math.sin(sinetick/12)))*CFrame.Angles(0,math.rad(90),0)},"Circular","Out",0.1)
-			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-.85 - 0.25 * (10/10) * math.sin(sinetick/6) / 2, (-0.6 * 1 * math.cos(sinetick/6) / 2)*ForWLB)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(sinetick/6))*85 * math.cos(sinetick/6)+math.sin(sinetick/12)),math.rad(0),math.rad((-ForWLV + ForWLV/5 * math.cos(sinetick/6))*40 * math.cos(sinetick/6)+math.sin(sinetick/12)))*CFrame.Angles(0,math.rad(-90),0)},"Circular","Out",0.1)
+			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(-0.8 * (10/10) * ForWLV,-0.8 * (10/10) * ForWLB,-.185 + 0.155 * (10/10) * math.cos(Timing.Sine/(6/2)))*CFrame.Angles(math.rad(25)*ForWLB,math.rad(10)*-ForWLV,math.rad(8*math.cos(Timing.Sine/6)))},"Circular","Out",0.1)
+			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad((-ForWLB - -ForWLB/5 * math.cos(Timing.Sine/7))*25),math.rad(0),math.rad((-ForWLV*45+-8 * math.cos(Timing.Sine/6))))},"Circular","Out",0.1)
+			SetJointTween(RightShoulder,{C0 = CFrame.new(1.5,.5,0)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(Timing.Sine/6))*80 * math.cos(Timing.Sine/6)),math.rad(0),math.rad(5))*RightShoulderCF},"Circular","Out",0.1)
+			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.5,.5,0)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(Timing.Sine/6))*80 * math.cos(Timing.Sine/6)),math.rad(0),math.rad(-5))*LeftShoulderCF},"Circular","Out",0.1)
+			SetJointTween(RightHip,{C0 = CFrame.new(1,-.85 + 0.25 * (10/10) * math.sin(Timing.Sine/6) / 2, (0.6 * 1 * math.cos(Timing.Sine/6) / 2)*ForWLB)*CFrame.Angles(math.rad((-ForWLB + ForWLB/5 * math.cos(Timing.Sine/6))*85 * math.cos(Timing.Sine/6)-math.sin(Timing.Sine/12)),math.rad(0),math.rad((ForWLV - ForWLV/5 * math.cos(Timing.Sine/6))*40 * math.cos(Timing.Sine/6)-math.sin(Timing.Sine/12)))*CFrame.Angles(0,math.rad(90),0)},"Circular","Out",0.1)
+			SetJointTween(LeftHip,{C0 = CFrame.new(-1,-.85 - 0.25 * (10/10) * math.sin(Timing.Sine/6) / 2, (-0.6 * 1 * math.cos(Timing.Sine/6) / 2)*ForWLB)*CFrame.Angles(math.rad((ForWLB - ForWLB/5 * math.cos(Timing.Sine/6))*85 * math.cos(Timing.Sine/6)+math.sin(Timing.Sine/12)),math.rad(0),math.rad((-ForWLV + ForWLV/5 * math.cos(Timing.Sine/6))*40 * math.cos(Timing.Sine/6)+math.sin(Timing.Sine/12)))*CFrame.Angles(0,math.rad(-90),0)},"Circular","Out",0.1)
 		elseif Anima == "sit" then
 			SetJointTween(RootJoint,{C0 = EulerRootCF*CFrame.new(0,0,0.5)*CFrame.Angles(math.rad(0),math.rad(0),math.rad(0))},"Quad","Out",InterpolationSpeed)
-			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad(0 - 2.3 * math.cos(sinetick/32)),math.rad(0 + 3.3 * math.cos(sinetick/77)),math.rad(0+10*math.cos(sinetick/91)))},"Quad","Out",InterpolationSpeed)
+			SetJointTween(Neck,{C0 = CFrame.new(0,1,0,-1,-0,-0,0,0,1,0,1,0)*CFrame.Angles(math.rad(0 - 2.3 * math.cos(Timing.Sine/32)),math.rad(0 + 3.3 * math.cos(Timing.Sine/77)),math.rad(0+10*math.cos(Timing.Sine/91)))},"Quad","Out",InterpolationSpeed)
 			SetJointTween(RightShoulder,{C0 = CFrame.new(1.3,.5,-0.5)*CFrame.Angles(math.rad(20),math.rad(0),math.rad(-20))*RightShoulderCF},"Quad","Out",InterpolationSpeed)
 			SetJointTween(LeftShoulder,{C0 = CFrame.new(-1.3,.5,-0.5)*CFrame.Angles(math.rad(20),math.rad(0),math.rad(20))*LeftShoulderCF},"Quad","Out",InterpolationSpeed)
 			SetJointTween(RightHip,{C0 = CFrame.new(1,-1.5,0.5)*CFrame.Angles(math.rad(90),math.rad(90),0)*CFrame.Angles(math.rad(-3),0,0)},"Quad","Out",InterpolationSpeed)
