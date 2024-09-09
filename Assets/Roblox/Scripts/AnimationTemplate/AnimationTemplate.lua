@@ -284,6 +284,7 @@ end)--]]
 
 task.spawn(function()
 	while (not false) do
+		Swait()
 		if (s.Parent ~= nil or s ~= nil) then
 			s.SoundId = "rbxassetid://4627095401"
 			s.Pitch = 1
