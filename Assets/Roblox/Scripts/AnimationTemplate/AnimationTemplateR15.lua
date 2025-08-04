@@ -364,7 +364,8 @@ end
 
 --[[ Miscellaneous Stuff ]]
 
-if game.PlaceId == 4994196290 then
+-- if game.PlaceId == 4994196290 then
+if game.PlaceId == 96066869773992 then
 	--PreloadAssets({15258212182})
 	
 	local Sounda = NewSound({
